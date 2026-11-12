@@ -3,8 +3,6 @@ import pytest
 from conftest import driver
 import data
 
-from locators import main_page_locators
-from pages import main_page
 from pages.main_page import MainPage 
 
 class TestTextAnswer:
