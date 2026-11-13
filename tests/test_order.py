@@ -4,6 +4,7 @@ import data
 
 import allure
 from pages.order_page import OrderPage
+from pages.base_page import BasePage
 
 
 class TestPlaceOrder:
@@ -17,15 +18,16 @@ class TestPlaceOrder:
         name, surname, address, phone = order_data
 
         order_page = OrderPage(driver)
+        base_page = BasePage(driver)
         order_page.click_order_button(button)
 
         order_page.fill_order_form(name, surname, address, phone)
-        order_page.click_scooter_logo()
+        base_page.click_scooter_logo()
 
-        assert order_page.get_current_url() == data.URL
+        assert base_page.get_current_url() == data.URL
 
-        order_page.click_yandex_logo()
-        order_page.switch_to_new_window()
+        base_page.click_yandex_logo()
+        base_page.switch_to_new_window()
 
-        assert data.URL_YANDEX in order_page.get_current_url()
+        assert data.URL_YANDEX in base_page.get_current_url()
 

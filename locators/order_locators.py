@@ -12,8 +12,8 @@ YES_BTN = (By.XPATH, "//button[text()='Да']")
 CHECK_STATUS_BTN = (By.XPATH, "//button[text()='Посмотреть статус']")
 
 
-SCOOTER_LOGO = (By.XPATH, "//a[contains(@class, 'LogoScooter')]")
-YANDEX_LOGO = (By.XPATH, "//a[contains(@class, 'LogoYandex')]")
+#SCOOTER_LOGO = (By.XPATH, "//a[contains(@class, 'LogoScooter')]")
+#YANDEX_LOGO = (By.XPATH, "//a[contains(@class, 'LogoYandex')]")
 
 NAME_FIELD = (By.XPATH, "//*[contains(@placeholder, 'Имя')]")
 SURNAME_FIELD = (By.XPATH, "//*[contains(@placeholder, 'Фамилия')]")

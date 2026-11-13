@@ -2,18 +2,16 @@
 import random
 import allure
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.support.ui import WebDriverWait
 
 from locators import order_locators
-from selenium.webdriver.support import expected_conditions as EC
+#from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
+from pages.base_page import BasePage
 
 
-class OrderPage:
+class OrderPage(BasePage):
     
-    def __init__(self, driver):
-            self.driver = driver
-
     @allure.step('Нажать кнопку "Заказать"')
     def click_order_button(self, button):
         if button == 'top':
@@ -81,17 +79,17 @@ class OrderPage:
     def click_check_status_button(self):
         self.driver.find_element(*order_locators.CHECK_STATUS_BTN).click()
 
-    @allure.step('Клик на логотип самоката')
-    def click_scooter_logo(self):
-        self.driver.find_element(*order_locators.SCOOTER_LOGO).click()
+    #@allure.step('Клик на логотип самоката')
+    #def click_scooter_logo(self):
+    #    self.driver.find_element(*order_locators.SCOOTER_LOGO).click()
 
-    @allure.step('Клик на логотип яндекса')
-    def click_yandex_logo(self):
-        self.driver.find_element(*order_locators.YANDEX_LOGO).click()
+    #@allure.step('Клик на логотип яндекса')
+    #def click_yandex_logo(self):
+    #    self.driver.find_element(*order_locators.YANDEX_LOGO).click()
 
-    @allure.step('Получаем текущий URL')
-    def get_current_url(self):
-        return self.driver.current_url
+    #@allure.step('Получаем текущий URL')
+    #def get_current_url(self):
+    #    return self.driver.current_url
 
     @allure.step('Заполняем форму создания заказа') #кажется предыдущие отдельные действия можно было не размечать шагами, раз уж они тут
     def fill_order_form(self, name, surname, address, phone):
@@ -107,8 +105,8 @@ class OrderPage:
         self.click_yes_button()
         self.click_check_status_button()
 
-    @allure.step('Переключаемся на новое окно браузера')
-    def switch_to_new_window(self): #это тоже подсмотрено в гугле, сначала пыталась перенастроить браузер, что в той же вкладке открывался :)
-        self.driver.switch_to.window(self.driver.window_handles[-1])
-        WebDriverWait(self.driver, 10).until(EC.url_changes('about:blank'))
+    #@allure.step('Переключаемся на новое окно браузера')
+    #def switch_to_new_window(self): #это тоже подсмотрено в гугле, сначала пыталась перенастроить браузер, что в той же вкладке открывался :)
+    #    self.driver.switch_to.window(self.driver.window_handles[-1])
+    #    WebDriverWait(self.driver, 10).until(EC.url_changes('about:blank'))
         
