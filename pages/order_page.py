@@ -10,13 +10,7 @@ from pages.base_page import BasePage
 
 class OrderPage(BasePage):
     
-    #@allure.step('Нажать кнопку "Заказать"')
-    #def click_order_button(self, button):
-     #   if button == 'top':
-      #      self.driver.find_element(*order_locators.ORDER_BTN_TOP).click()
-       # elif button == 'bottom':
-        #    self.driver.find_element(*order_locators.ORDER_BTN_BOTTOM).click()
-
+   
     @allure.step('Нажать верхнюю кнопку "Заказать"')
     def click_top_order_btn(self):
         self.driver.find_element(*order_locators.ORDER_BTN_TOP).click() 
