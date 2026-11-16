@@ -10,22 +10,26 @@ class TestPlaceOrder:
 
     @allure.title("Проверка оформления заказа самоката через верхнюю кнопку заказа")
     def test_top_order_bnt(self,driver):
+        name, surname, address, phone = data.order_data_1
         order_page = OrderPage(driver)
-        base_page = BasePage(driver)
-        order_page.click_top_order_btn()
-        order_page.fill_order_form(*data.order_data_1)
-        base_page.click_scooter_logo()
 
-        assert base_page.get_current_url() == data.URL
+        order_page.click_top_order_btn()
+        order_page.fill_order_form(name, surname, address, phone)
+        order_page.click_scooter_logo()
+
+        assert order_page.get_current_url() == data.URL
+        
+       
 
     @allure.title("Проверка оформления заказа самоката через нижнюю кнопку заказа")
     def test_buttom_order_bnt(self,driver):        
+        name, surname, address, phone = data.order_data_2
         order_page = OrderPage(driver)
-        base_page = BasePage(driver)
+        
         order_page.click_buttom_order_btn()
-        order_page.fill_order_form(*data.order_data_2)
-        base_page.click_yandex_logo()
-        base_page.switch_to_new_window()
+        order_page.fill_order_form(name, surname, address, phone)
+        order_page.click_yandex_logo()
+        order_page.switch_to_new_window()
 
-        assert data.URL_YANDEX in base_page.get_current_url()
+        assert data.URL_YANDEX in order_page.get_current_url()
 

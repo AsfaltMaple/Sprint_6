@@ -22,6 +22,9 @@ RENTAL_PERIOD_FIELD = (By.XPATH, "//div[contains(@class, 'Dropdown')]")
 RENTAL_PERIODS = (By.CSS_SELECTOR, 'div.Dropdown-option')
 METRO_STATIONS = (By.CSS_SELECTOR, "li.select-search__row") #чертов пропадающий список, откуда не выцепить локатор!!!
 
+SCOOTER_LOGO = (By.XPATH, "//a[contains(@class, 'LogoScooter')]")
+YANDEX_LOGO = (By.XPATH, "//a[contains(@class, 'LogoYandex')]")
+
 #оставлю себе коммент о поиске локатора, это не закомменченный код, а чтобы не потерять: 
 # def set_metro_station(self): - заменить метод заполнения метро с неправильным локатором на этот, и потом искать в сообщении об ошибке элементы вокруг "Сокольники"
     #metro = self.driver.find_element(*order_locators.METRO_FIELD)
